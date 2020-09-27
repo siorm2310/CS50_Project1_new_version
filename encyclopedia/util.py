@@ -35,3 +35,14 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+def get_similar_entries(title):
+    if get_entry(title) is None:
+        list_of_similars = []
+        entries = list_entries()
+        for e in entries:
+            similar_entry = re.search(title,e,flags=re.IGNORECASE)
+            if similar_entry is not None:
+                list_of_similars.append(e)
+        return list_of_similars
+    return title

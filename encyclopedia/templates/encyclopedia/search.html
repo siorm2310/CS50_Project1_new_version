@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block body %}
+    <h1>We couldn't find your specific entry</h1>
+    <h2>Here are some entries that might be related</h2>
+    <br>
+    {% if entries %}
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{% url 'entry_page' entry=entry %}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h4>We could not find anything similar</h4>
+    {% endif %}
+    
+
+{% endblock %}

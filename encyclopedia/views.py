@@ -18,5 +18,5 @@ def entry_page(request,entry):
             "Entry_name": entry,
             "content":content
         })
-    except FileNotFoundError:
+    except TypeError:
         return render(request,"encyclopedia/error.html",{"error": 404})

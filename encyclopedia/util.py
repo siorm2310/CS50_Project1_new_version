@@ -36,7 +36,18 @@ def get_entry(title):
     except FileNotFoundError:
         return None
 
+
+# My own utils
 def get_similar_entries(title):
+    """Search for entry. If does not exitst - search for similar entries
+
+
+    Args:
+        title (string)
+
+    Returns:
+        entries [list OR string]
+    """
     if get_entry(title) is None:
         list_of_similars = []
         entries = list_entries()

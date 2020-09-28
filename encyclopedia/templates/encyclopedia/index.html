@@ -10,7 +10,6 @@
     <ul>
         {% for entry in entries %}
             <li><a href="{% url 'entry_page' entry=entry %}">{{ entry }}</a></li>
-            <!-- <li>{{ entry }}</li> -->
         {% endfor %}
     </ul>
 

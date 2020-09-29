@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    new
+{% endblock %}
+
+{% block body %}
+<h1>Edit the entry:</h1>
+
+<form method="POST" class="container col-sm col-md-9">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" name="title" class="form-control" placeholder="Enter the title" value="{{entry}}">
+    </div>
+    <div class="form-group">
+        <textarea name="content" cols="4" rows="4" class="form-control form-control-sm" placeholder="Use markdown to style your entry">{{content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    
+</form>
+{% endblock %}

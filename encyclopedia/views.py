@@ -57,3 +57,15 @@ def add_entry(request):
 def random_entry(request):
     entry = random.choice(util.list_entries())
     return redirect("entry_page", entry=entry)
+
+def edit_entry(request,entry):
+    entry_content = util.get_entry(entry)
+
+    if request.method == "POST":
+        util.save_entry(request.POST["title"],request.POST["content"])
+        return redirect("entry_page", entry=entry)
+    
+    return render(request, "encyclopedia/edit_entry.html",{
+            "entry": entry,
+            "content":entry_content
+        })
